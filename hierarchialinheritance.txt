@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+protected:
+    string name;
+    int rollNo;
+public:
+    void getDetails(string n, int r) {
+        name = n;
+        rollNo = r;
+    }
+    void displayDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Roll No: " << rollNo << endl;
+    }
+};
+
+class EngineeringStudent : public Student {
+private:
+    string branch;
+public:
+    void setBranch(string b) {
+        branch = b;
+    }
+    void showBranch() {
+        cout << "Branch: " << branch << endl;
+    }
+};
+
+class MedicalStudent : public Student {
+private:
+    string specialization;
+public:
+    void setSpecialization(string s) {
+        specialization = s;
+    }
+    void showSpecialization() {
+        cout << "Specialization: " << specialization << endl;
+    }
+};
+
+int main() {
+    EngineeringStudent e1;
+    e1.getDetails("Saborno", 76);
+    e1.setBranch("Computer Science");
+    cout << "Engineering Student Details:\n";
+    e1.displayDetails();
+    e1.showBranch();
+
+    cout << "\n";
+
+    MedicalStudent m1;
+    m1.getDetails("Bob", 202);
+    m1.setSpecialization("Cardiology");
+    cout << "Medical Student Details:\n";
+    m1.displayDetails();
+    m1.showSpecialization();
+
+    return 0;
+}

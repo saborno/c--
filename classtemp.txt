@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Calculator {
+    T num1, num2;
+public:
+    Calculator(T a, T b) {
+        num1 = a;
+        num2 = b;
+    }
+    void displayResults() {
+        cout << "Numbers: " << num1 << ", " << num2 << endl;
+        cout << "Addition: " << num1 + num2 << endl;
+        cout << "Subtraction: " << num1 - num2 << endl;
+        cout << "Multiplication: " << num1 * num2 << endl;
+        cout << "Division: " << num1 / num2 << endl;
+    }
+};
+
+int main() {
+    Calculator<int> c1(10, 5);
+    Calculator<float> c2(5.5, 2.2);
+
+    cout << "--- Integer Calculator ---" << endl;
+    c1.displayResults();
+    cout << "\n--- Float Calculator ---" << endl;
+    c2.displayResults();
+
+    return 0;
+}

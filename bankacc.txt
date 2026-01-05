@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+    int acno;
+    float balance;
+    char actype[10];
+
+public:
+    void store();
+    void deposit();
+    void withdraw();
+    void display();
+};
+
+void BankAccount::store()
+{
+    cout << "Enter account number: ";
+    cin >> acno;
+
+    cout << "Enter account type (CURR/SAVING): ";
+    cin >> actype;
+
+    cout << "Enter current balance: ";
+    cin >> balance;
+}
+
+void BankAccount::deposit()
+{
+    float money;
+    cout << "Enter amount to deposit: ";
+    cin >> money;
+
+    balance = balance + money;
+}
+
+void BankAccount::withdraw()
+{
+    float amt;
+    cout << "Enter amount to withdraw: ";
+    cin >> amt;
+
+    balance = balance - amt;
+}
+
+void BankAccount::display()
+{
+    cout << "\nAccount Details" << endl;
+    cout << "Account Number : " << acno << endl;
+    cout << "Account Type   : " << actype << endl;
+    cout << "Balance        : " << balance << endl;
+}
+
+int main()
+{
+    BankAccount b;
+
+    b.store();
+    b.deposit();
+    b.withdraw();
+    b.display();
+
+    return 0;
+}

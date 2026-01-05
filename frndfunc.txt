@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+    float marks;
+
+public:
+    Student(string n, int a, float m) {
+        name = n;
+        age = a;
+        marks = m;
+    }
+
+    friend void displayStudent(Student s);
+    friend void updateMarks(Student &s, float newMarks);
+};
+
+// Friend function: can access private members
+void displayStudent(Student s) {
+    cout << "Name: " << s.name << endl;
+    cout << "Age: " << s.age << endl;
+    cout << "Marks: " << s.marks << endl;
+}
+
+void updateMarks(Student &s, float newMarks) {
+    s.marks = newMarks;
+}
+
+int main() {
+    Student st("Saborno", 20, 90);
+
+    cout << "Before updating marks:" << endl;
+    displayStudent(st);
+
+    updateMarks(st, 92.0);
+
+    cout << "\nAfter updating marks:" << endl;
+    displayStudent(st);
+
+    return 0;
+}
